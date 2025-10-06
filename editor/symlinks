@@ -1,0 +1,3 @@
+nvim $HOME/.config/nvim
+nvim_plain $HOME/.config/nvim_plain
+markdownlint-cli2.yaml $HOME/.markdownlint-cli2.yaml

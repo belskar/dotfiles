@@ -1,0 +1,28 @@
+return {
+  "mason-org/mason.nvim",
+  opts = {
+    ensure_installed = {
+      "docker-compose-language-service",
+      "dockerfile-language-server",
+      "gofumpt",
+      "goimports",
+      "gopls",
+      "hadolint",
+      "jdtls",
+      "json-lsp",
+      "kotlin-language-server",
+      "ktlint",
+      "lua-language-server",
+      "markdown-toc",
+      "markdownlint-cli2",
+      "marksman",
+      "pyright",
+      "ruff",
+      "shfmt",
+      "stylua",
+      "taplo",
+      "typescript-language-server",
+      "yaml-language-server",
+    },
+  },
+}
