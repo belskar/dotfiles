@@ -1,15 +1,22 @@
 #!/usr/bin/env bash
-source "$(dirname $0)/_functions.sh"
+# Bootstrap script for installing dotfiles and dependencies.
+# Usage: Run this script from the dotfiles repository root.
 
-cd "$(dirname $0)/.."
-DOTFILES_ROOT=$(pwd -P)
+source "$(dirname $0)/_functions.sh" # Load helper functions
+
+cd "$(dirname $0)/.."   # Change to repository root
+DOTFILES_ROOT=$(pwd -P) # Store absolute path to dotfiles root
 
 echo "Current pwd: $(pwd)"
 
-set -eu
+set -eu # Exit on error or unset variable
 
 echo ''
 
+# link_file <src> <dst>
+# Creates a symlink from <src> to <dst>, handling existing files:
+# - Prompts user to skip, overwrite, or backup if destination exists.
+# - Supports "all" actions for batch operations.
 link_file() {
   local src=$1 dst=$2
 
@@ -83,6 +90,9 @@ link_file() {
     success "linked $1 to $2"
   fi
 }
+
+# install_dotfiles
+# Finds all 'symlinks' files in the dotfiles repo and creates symlinks as specified.
 install_dotfiles() {
   info 'installing dotfiles'
 
@@ -91,7 +101,7 @@ install_dotfiles() {
   for symlinks in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name 'symlinks' -not -path '*.git*'); do
     srcDir="$(dirname "$symlinks")"
     while read -r src dst _; do
-      # skip empty lines
+      # skip empty lines and comments
       [[ -z "$src" || "$src" =~ ^# ]] && continue
       link_file "$srcDir/$src" "${dst/#\$HOME/$HOME}"
     done <"$symlinks"
@@ -101,7 +111,7 @@ install_dotfiles() {
 
 install_dotfiles
 
-# Install dependencies
+# Install dependencies using bin/dot script.
 info "installing dependencies"
 if source bin/dot | while read -r data; do info "$data"; done; then
   success "dependencies installed"
