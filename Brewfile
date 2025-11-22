@@ -18,5 +18,6 @@ brew "zk"
 
 cask "karabiner-elements"
 cask "font-hack-nerd-font"
-cask "rectangle"
+cask "rectangle"  # TODO: possibly will be replaced by aerospace
 cask "iterm2"
+cask "nikitabobko/tap/aerospace"
