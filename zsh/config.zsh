@@ -1,5 +1,6 @@
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
+export LANG="en_US.UTF-8"
 
 fpath=($MY_ZSH/functions $fpath)
 
