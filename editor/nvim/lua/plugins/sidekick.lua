@@ -1,17 +1,9 @@
 return {
   "folke/sidekick.nvim",
+  -- disable NES by default as it's somewath clunky
   opts = {
     nes = {
       enabled = false,
-    },
-  },
-  keys = {
-    {
-      "<leader>an",
-      function()
-        require("sidekick.nes").toggle()
-      end,
-      desc = "Sidekick NES Toggle",
     },
   },
 }
