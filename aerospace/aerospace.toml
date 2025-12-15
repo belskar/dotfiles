@@ -213,17 +213,26 @@ shift-down = ['volume set 0', 'mode main']
 if.app-id = 'com.apple.Safari'
 run = 'move-node-to-workspace 1'
 
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
 run = 'move-node-to-workspace 2'
 
-
 [[on-window-detected]]
 if.app-id = 'com.culturedcode.ThingsMac'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = ['layout tiling', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Notes'
-run = ['layout tiling', 'move-node-to-workspace 3']
+if.app-id = 'us.zoom.xos'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = ['layout tiling', 'move-node-to-workspace 4']
